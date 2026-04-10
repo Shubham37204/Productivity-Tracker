@@ -1,0 +1,82 @@
+generator client {
+  provider             = "prisma-client-py"
+  interface            = "asyncio"
+  recursive_type_depth = 5
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  clerkId   String   @unique
+  email     String   @unique
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  tasks          Task[]
+  achievements   Achievement[]
+  weeklyReports  WeeklyReport[]
+  xpLogs         XPLog[]
+}
+
+model Task {
+  id          String   @id @default(cuid())
+  title       String
+  category    String   @default("General")
+  completed   Boolean  @default(false)
+  xp          Int      @default(10)
+  dueDate     DateTime?
+  completedAt DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model XPLog {
+  id        String   @id @default(cuid())
+  xp        Int
+  reason    String
+  createdAt DateTime @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Achievement {
+  id          String   @id @default(cuid())
+  title       String
+  description String
+  icon        String
+  unlockedAt  DateTime @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model WeeklyReport {
+  id        String   @id @default(cuid())
+  summary   String
+  tips      String[]
+  weekStart DateTime
+  weekEnd   DateTime
+  createdAt DateTime @default(now())
+
+  userId String
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+}
+
+model Streak {
+  id            String   @id @default(cuid())
+  userId        String   @unique
+  currentStreak Int      @default(0)
+  longestStreak Int      @default(0)
+  lastActiveAt  DateTime @default(now())
+  freezesLeft   Int      @default(2)
+  updatedAt     DateTime @updatedAt
+}

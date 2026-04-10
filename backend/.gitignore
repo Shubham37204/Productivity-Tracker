@@ -1,0 +1,45 @@
+# ----------------------
+# Node / Prisma
+# ----------------------
+node_modules/
+.env
+.env.*
+dist/
+build/
+
+# Prisma
+prisma/dev.db
+prisma/dev.db-journal
+
+# ----------------------
+# Python
+# ----------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+
+# Virtual env
+venv/
+.env/
+.envrc
+
+# ----------------------
+# OS / Editor
+# ----------------------
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# ----------------------
+# Logs
+# ----------------------
+*.log
+
+# ----------------------
+# Misc
+# ----------------------
+coverage/
+.cache/
