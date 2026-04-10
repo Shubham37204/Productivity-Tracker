@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "paths": {
+      "@/*": ["./src/*"]
+    },
+
+    /* ADD THIS 👇 */
+    "jsx": "react-jsx",
+
+    /* Recommended */
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "strict": true,
+    "skipLibCheck": true
+  },
+  "include": ["src"]
+}
