@@ -2,7 +2,6 @@
 
 A full-stack productivity tracker with gamification, AI-powered weekly reports, streak tracking, and a real-time XP leaderboard.
 
----
 
 ## 📸 Features
 
@@ -15,7 +14,6 @@ A full-stack productivity tracker with gamification, AI-powered weekly reports, 
 - 🔐 **Auth via Clerk** — Google/GitHub OAuth, session management out of the box
 - ⚡ **Auto Scheduler** — Weekly reports auto-generated every Sunday via APScheduler
 
----
 
 ## 🛠 Tech Stack
 
@@ -42,7 +40,6 @@ A full-stack productivity tracker with gamification, AI-powered weekly reports, 
 | APScheduler | Weekly report cron job |
 | Clerk SDK | JWT verification middleware |
 
----
 
 ## 📁 Project Structure
 
@@ -77,8 +74,6 @@ productivity-tracker/
     └── .env
 ```
 
----
-
 ## 🚀 Getting Started
 
 ### Prerequisites
@@ -90,7 +85,6 @@ productivity-tracker/
 - [Clerk](https://clerk.com) account
 - [Groq](https://console.groq.com) API key
 
----
 
 ### 1. Clone the repo
 
@@ -99,7 +93,6 @@ git clone https://github.com/yourusername/productivity-tracker.git
 cd productivity-tracker
 ```
 
----
 
 ### 2. Backend Setup
 
@@ -137,7 +130,6 @@ uvicorn main:app --reload
 API runs at `http://localhost:8000`
 Swagger docs at `http://localhost:8000/docs`
 
----
 
 ### 3. Frontend Setup
 
@@ -159,7 +151,6 @@ npm run dev
 
 App runs at `http://localhost:5173`
 
----
 
 ## 🗄 Database Schema
 
@@ -188,7 +179,6 @@ userId, currentStreak, longestStreak, lastActiveAt, freezesLeft
 userId, summary, tips[], weekStart, weekEnd
 ```
 
----
 
 ## 🔌 API Endpoints
 
@@ -206,7 +196,6 @@ userId, summary, tips[], weekStart, weekEnd
 | POST | `/api/reports/generate` | Generate AI weekly report |
 | POST | `/api/reports/breakdown` | AI 7-day goal breakdown |
 
----
 
 ## 🎮 Gamification Logic
 
@@ -228,7 +217,6 @@ userId, summary, tips[], weekStart, weekEnd
 | 💯 Century | Earn 100 XP |
 | 🏆 XP Master | Earn 500 XP |
 
----
 
 ## 🤖 AI Integration (Groq)
 
@@ -243,7 +231,6 @@ Accepts a free-text goal and returns a structured 7-day action plan with categor
 ### Auto Scheduler
 Every Sunday at 23:59, APScheduler auto-generates weekly reports for all active users.
 
----
 
 ## 🚢 Deployment
 
@@ -265,7 +252,6 @@ Every Sunday at 23:59, APScheduler auto-generates weekly reports for all active 
 3. Set `VITE_CLERK_PUBLISHABLE_KEY` and `VITE_API_URL` in Vercel env settings
 4. Deploy
 
----
 
 ## 📝 Environment Variables
 
@@ -283,11 +269,6 @@ Every Sunday at 23:59, APScheduler auto-generates weekly reports for all active 
 | `VITE_CLERK_PUBLISHABLE_KEY` | From Clerk dashboard |
 | `VITE_API_URL` | Backend base URL |
 
----
-
-## 📄 License
-
-MIT License — feel free to fork and build on top of this.
 
 ---
 
